@@ -1,5 +1,8 @@
 package main;
 
+import exception.BusinessException;
+import facade.Facade;
+import facade.IFacade;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +11,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import model.Gerente;
+import model.Pessoa;
 
 import java.io.IOException;
 
@@ -17,6 +22,7 @@ public class Main extends Application {
     public static String LOGIN = "/view/TelaLogin.fxml";
     public static String MENU = "/view/TelaControleInterno.fxml";
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
        STAGE.initOwner(STAGE_PRINCIPAL);
@@ -25,6 +31,7 @@ public class Main extends Application {
        stageLogin().setTitle("Login Bar da Fava");
        stageLogin().initStyle(StageStyle.UNDECORATED);
        stageLogin().show();
+
     }
 
     public static Stage stagePrincipal() throws IOException {
@@ -61,6 +68,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Facade facade = new Facade();
+        Pessoa pessoa = new Pessoa("123",1);
+        try {
+            facade.salvarPessoa(pessoa);
+        } catch (BusinessException e) {
+            e.printStackTrace();
+        }
         launch(args);
     }
 }

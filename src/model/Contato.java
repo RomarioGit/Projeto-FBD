@@ -3,6 +3,7 @@ package model;
 public class Contato {
     private String email;
     private String telefone;
+    private Integer id;
 
     public Contato(String email, String fone) {
         this.email = email;

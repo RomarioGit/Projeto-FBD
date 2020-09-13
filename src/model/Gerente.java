@@ -4,13 +4,14 @@ public class Gerente extends Pessoa {
     private String nome;
     private String data_nasc;
     private String sexo;
+    private Integer id;
 
-    public Gerente(String cpf) {
-        super(cpf);
+    public Gerente(String cpf,  Integer id) {
+        super(cpf, id);
     }
 
-    public Gerente(String cpf, String nome, String data, String sexo) {
-        super(cpf);
+    public Gerente(String cpf, String nome, String data, String sexo,  Integer id) {
+        super(cpf, id);
         this.nome = nome;
         this.data_nasc = data;
         this.sexo = sexo;

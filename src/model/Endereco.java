@@ -7,6 +7,7 @@ public class Endereco {
     private String estado;
     private String complemento;
     private String cep;
+    private Integer id;
 
     public Endereco(String rua, String bairro, String cidade, String estado, String complemento, String cep) {
         this.rua = rua;

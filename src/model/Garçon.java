@@ -4,13 +4,14 @@ public class Garçon extends Pessoa {
     private String nome;
     private String data_nasc;
     private String sexo;
+    private Integer id;
 
-    public Garçon(String cpf) {
-        super(cpf);
+    public Garçon(String cpf, Integer id) {
+        super(cpf,id);
     }
 
-    public Garçon(String cpf, String nome, String data, String sexo) {
-        super(cpf);
+    public Garçon(String cpf, String nome, String data, String sexo,  Integer id) {
+        super(cpf, id);
         this.nome = nome;
         this.data_nasc = data;
         this.sexo = sexo;

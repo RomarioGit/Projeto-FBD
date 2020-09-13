@@ -3,6 +3,7 @@ package model;
 public class Usuario {
     private String login;
     private String senha;
+    private Integer id;
 
     public Usuario(String login, String senha ) {
         this.login = login;
