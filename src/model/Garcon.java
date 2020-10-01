@@ -1,23 +1,30 @@
 package model;
 
-public class Garçon extends Pessoa {
+public class Garcon extends Pessoa {
     private String nome;
     private String data_nasc;
     private String sexo;
-    private Integer id;
+    private Integer id;    
+    
+	public Garcon(Integer id) {
+		super();
+		this.id = id;
+	}
 
-    public Garçon(String cpf, Integer id) {
-        super(cpf,id);
-    }
-
-    public Garçon(String cpf, String nome, String data, String sexo,  Integer id) {
-        super(cpf, id);
+	public Garcon(String cpf, String nome, String data, String sexo) {
         this.nome = nome;
         this.data_nasc = data;
         this.sexo = sexo;
     }
+	
+    public Garcon(String nome, String data_nasc, String sexo) {
+		super();
+		this.nome = nome;
+		this.data_nasc = data_nasc;
+		this.sexo = sexo;
+	}
 
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
 
@@ -40,4 +47,13 @@ public class Garçon extends Pessoa {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
 }

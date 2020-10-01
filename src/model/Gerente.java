@@ -6,18 +6,27 @@ public class Gerente extends Pessoa {
     private String sexo;
     private Integer id;
 
-    public Gerente(String cpf,  Integer id) {
-        super(cpf, id);
-    }
+    
+	public Gerente(Integer id) {
+		super();
+		this.id = id;
+	}
 
-    public Gerente(String cpf, String nome, String data, String sexo,  Integer id) {
+	public Gerente(String cpf, String nome, String data, String sexo,  Integer id) {
         super(cpf, id);
         this.nome = nome;
         this.data_nasc = data;
         this.sexo = sexo;
     }
 
-    public String getNome() {
+ 	public Gerente(String nome, String data_nasc, String sexo) {
+		super();
+		this.nome = nome;
+		this.data_nasc = data_nasc;
+		this.sexo = sexo;
+	}
+
+	public String getNome() {
         return nome;
     }
 
@@ -40,4 +49,13 @@ public class Gerente extends Pessoa {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
 }

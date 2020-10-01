@@ -4,13 +4,23 @@ public class Pessoa {
     private String cpf;
     private Integer id;
 
-    public Pessoa(String cpf, Integer id) {
-        super();
-        this.cpf = cpf;
-        this.id = id;
-    }
+    public Pessoa(String cpf) {
+		super();
+		this.cpf = cpf;
+	}
 
-    public Pessoa() {
+    public Pessoa(Integer id) {
+		super();
+		this.id = id;
+	}
+    
+	public Pessoa(String cpf, Integer id) {
+		super();
+		this.cpf = cpf;
+		this.id = id;
+	}
+
+	public Pessoa() {
     }
 
     public String getCpf() {

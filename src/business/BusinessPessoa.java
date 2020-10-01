@@ -1,8 +1,10 @@
 package business;
 
+import java.util.ArrayList;
+
 import dao.DaoPessoa;
-import exception.BusinessException;
-import exception.DaoException;
+
+import exception.ExceptionGeral;
 import model.Pessoa;
 
 public class BusinessPessoa implements IBusinessPessoa {
@@ -13,8 +15,23 @@ public class BusinessPessoa implements IBusinessPessoa {
     }
 
     @Override
-    public Pessoa salvarPessoa(Pessoa pessoa) throws BusinessException {
-        pessoa = daoPessoa.salvarPessoa(pessoa);
-        return pessoa;
+    public Pessoa salvarPessoa(Pessoa pessoa) throws ExceptionGeral {
+    	try {
+    		pessoa = daoPessoa.salvarPessoa(pessoa);
+		} catch (ExceptionGeral e) {
+			e.printStackTrace();
+		}
+		return pessoa;
     }
+
+	@Override
+	public Pessoa buscarID(int id) throws ExceptionGeral {
+		return daoPessoa.buscarID(id);
+	}
+	
+	@Override
+	public ArrayList<Pessoa> getAll() throws ExceptionGeral {
+		return daoPessoa.getAll();
+	}
+	
 }

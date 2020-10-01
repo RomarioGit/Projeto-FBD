@@ -10,8 +10,13 @@ public class Caixa {
         this.despesa = despesa;
         this.id = id;
     }
+    
+    public Caixa(Integer id) {
+		super();
+		this.id = id;
+	}
 
-    public double getReceita() {
+	public double getReceita() {
         return receita;
     }
 

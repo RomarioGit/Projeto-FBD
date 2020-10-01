@@ -1,24 +1,37 @@
 package business;
 
+import java.util.ArrayList;
+
 import dao.DaoEndereco;
-import exception.BusinessException;
-import exception.DaoException;
+import exception.ExceptionGeral;
 import model.Endereco;
 
 public class BusinessEndereco implements IBusinessEndereco {
-    private DaoEndereco daoEndereco;
+ 
+	private DaoEndereco daoEndereco;
 
     public BusinessEndereco() {
         this.daoEndereco = new DaoEndereco();
     }
 
     @Override
-    public Endereco salvarEndereco(Endereco endereco) throws BusinessException {
+    public Endereco salvarEndereco(Endereco endereco) throws ExceptionGeral {
         try {
             endereco = daoEndereco.salvarEndereco(endereco);
-        } catch (DaoException e) {
+        } catch (ExceptionGeral e) {
             e.printStackTrace();
         }
         return endereco;
     }
+
+	@Override
+	public Endereco buscarID(int id) throws ExceptionGeral {
+		return daoEndereco.buscarID(id);
+	}
+
+
+	@Override
+	public ArrayList<Endereco> getAll() throws ExceptionGeral {
+		return daoEndereco.getAll();
+	}
 }

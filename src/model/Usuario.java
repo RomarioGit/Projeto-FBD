@@ -13,7 +13,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public String getLogin() {
+    public Usuario(Integer id) {
+		super();
+		this.id = id;
+	}
+
+	public String getLogin() {
         return login;
     }
 
@@ -28,4 +33,13 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
 }

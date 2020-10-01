@@ -17,8 +17,13 @@ public class Endereco {
         this.complemento = complemento;
         this.cep = cep;
     }
+    
+    public Endereco(Integer id) {
+		super();
+		this.id = id;
+	}
 
-    public Endereco() {
+	public Endereco() {
     }
 
     public String getRua() {

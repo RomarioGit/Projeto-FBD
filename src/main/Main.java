@@ -1,6 +1,6 @@
 package main;
 
-import exception.BusinessException;
+import exception.ExceptionGeral;
 import facade.Facade;
 import facade.IFacade;
 import javafx.application.Application;
@@ -72,7 +72,7 @@ public class Main extends Application {
         Pessoa pessoa = new Pessoa("123",1);
         try {
             facade.salvarPessoa(pessoa);
-        } catch (BusinessException e) {
+        } catch (ExceptionGeral e) {
             e.printStackTrace();
         }
         launch(args);

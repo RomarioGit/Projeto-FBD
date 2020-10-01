@@ -1,25 +1,39 @@
 package business;
 
-import dao.DaoPessoa;
+import java.util.ArrayList;
+
 import dao.DaoUsuario;
-import exception.BusinessException;
-import exception.DaoException;
+import dao.IDaoUsuario;
+import exception.ExceptionGeral;
 import model.Usuario;
 
 public class BusinessUsuario implements IBusinessUsuario {
-    private DaoUsuario daoUsuario;
 
-    public BusinessUsuario() {
-        this.daoUsuario = new DaoUsuario();
-    }
+	private IDaoUsuario daoUsuario;
 
-    @Override
-    public Usuario salvarUsuario(Usuario usuario) throws BusinessException {
-        try {
-            usuario = daoUsuario.salvarUsuario(usuario);
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
-        return usuario;
-    }
+	public BusinessUsuario() {
+		super();
+		this.daoUsuario = new DaoUsuario();
+	}
+
+	@Override
+	public Usuario salvarUsuario(Usuario usuario) throws ExceptionGeral {
+		try {
+			usuario = daoUsuario.salvarUsuario(usuario);
+		} catch (ExceptionGeral e) {
+			e.printStackTrace();
+		}
+		return usuario;
+	}
+
+	@Override
+	public Usuario buscarID(int id) throws ExceptionGeral {
+		return daoUsuario.buscarID(id);
+	}
+
+	@Override
+	public ArrayList<Usuario> getAll() throws ExceptionGeral {
+		return daoUsuario.getAll();
+
+	}
 }
