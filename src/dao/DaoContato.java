@@ -21,10 +21,14 @@ public class DaoContato implements IDaoContato {
     @Override
     public Contato salvarContato(Contato contato) throws ExceptionGeral {
         try {
-            this.statement = conexao.prepareStatement("" + "INSERT INTO contato" + "(email, telefone)" + "VALUES(?,?)");
+            this.statement = conexao.prepareStatement("" + "INSERT INTO contato" + "(email, telefone)" + "VALUES(?,?) returning id");
             this.statement.setString(1, contato.getEmail());
             this.statement.setString(2, contato.getTelefone());
-            this.statement.execute();
+          
+            this.result = this.statement.executeQuery();
+            this.result.next();
+            contato.setId(this.result.getInt(1));   
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -22,9 +22,13 @@ public class DaoPessoa implements IDaoPessoa {
 
     public Pessoa salvarPessoa(Pessoa pessoa) throws ExceptionGeral{
         try {
-            this.statement = conexao.prepareStatement("" + " INSERT INTO pessoa " + "(cpf)" + "VALUES(?)" );
+            this.statement = conexao.prepareStatement("" + " INSERT INTO pessoa " + "(cpf)" + "VALUES(?) returning id");
             this.statement.setString(2, pessoa.getCpf());
-            this.statement.execute();
+           
+            this.result = this.statement.executeQuery();
+            this.result.next();
+            pessoa.setId(this.result.getInt(1));   
+            
         } catch (SQLException e) {
             System.out.println("Deu pau na insercao");
             e.printStackTrace();

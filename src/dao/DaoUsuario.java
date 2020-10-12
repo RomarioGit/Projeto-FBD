@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DaoUsuario implements IDaoUsuario {
+	
     private Connection conexao;
     private PreparedStatement statement;
 	private ResultSet result;
@@ -21,10 +22,14 @@ public class DaoUsuario implements IDaoUsuario {
     @Override
     public Usuario salvarUsuario(Usuario usuario) throws ExceptionGeral {
         try {
-            this.statement = conexao.prepareStatement("" + "INSERT INTO usuario " + "(login, senha)" + "VALUES (?,?)");
+            this.statement = conexao.prepareStatement("" + "INSERT INTO usuario " + "(login, senha)" + "VALUES (?,?) returning id");
             this.statement.setString(1, usuario.getLogin());
             this.statement.setString(2, usuario.getSenha());
-            this.statement.execute();
+           
+            this.result = this.statement.executeQuery();
+            this.result.next();
+            usuario.setId(this.result.getInt(1));   
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -22,13 +22,18 @@ public class DaoEndereco implements IDaoEndereco {
     public Endereco salvarEndereco(Endereco endereco) throws ExceptionGeral {
         try {
             this.statement = conexao.prepareStatement("" + "INSERT INTO endereco" + "(rua, bairro, cidade, cep, estado, complemento)" +
-                    "VALUES(?,?,?,?,?,?,?)");
+                    "VALUES(?,?,?,?,?,?,?) returning id");
             this.statement.setString(1, endereco.getRua());
             this.statement.setString(2, endereco.getBairro());
             this.statement.setString(3, endereco.getCidade());
             this.statement.setString(4, endereco.getCep());
             this.statement.setString(5, endereco.getEstado());
             this.statement.setString(6, endereco.getComplemento());
+            
+            this.result = this.statement.executeQuery();
+            this.result.next();
+            endereco.setId(this.result.getInt(1));  
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
