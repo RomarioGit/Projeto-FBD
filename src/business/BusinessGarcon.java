@@ -18,16 +18,7 @@ public class BusinessGarcon implements IBusinessGarcon{
 
 	@Override
 	public Garcon salvarGacon(Garcon garcon) throws ExceptionGeral {
-        
-    	if (garcon.getCpf().matches("^[a-Z]")) {
-			throw new ExceptionGeral("O CPF deve conter apenas números!");
-		}
-    	if (garcon.getData_nasc().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A Data de Nascimento deve conter apenas números!");
-		}
-    	if (!garcon.getNome().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A Nome deve conter apenas letras!");
-		}
+
 		try {
         	garcon = daoGarcon.salvarGarcon(garcon);
         } catch (ExceptionGeral e) {

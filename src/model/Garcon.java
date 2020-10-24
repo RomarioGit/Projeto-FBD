@@ -4,13 +4,19 @@ public class Garcon extends Pessoa {
     private String nome;
     private String data_nasc;
     private String sexo;
-    private Integer id;    
-    
+    private Integer id;
+    private Usuario usuario;
+    private Endereco endereco;
+    private Contato contato;
+    private Pessoa pessoa;
+
 	public Garcon(Integer id) {
 		super();
 		this.id = id;
 	}
+    public Garcon(){
 
+    }
 	public Garcon(String cpf, String nome, String data, String sexo) {
         this.nome = nome;
         this.data_nasc = data;
@@ -24,7 +30,39 @@ public class Garcon extends Pessoa {
 		this.sexo = sexo;
 	}
 
-	public String getNome() {
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void setContato(Contato contato) {
+        this.contato = contato;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public String getNome() {
         return nome;
     }
 

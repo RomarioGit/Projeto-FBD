@@ -10,7 +10,10 @@ public class Contato {
         this.telefone = fone;
     }
 
-	public Contato(Integer id) {
+    public Contato() {
+    }
+
+    public Contato(Integer id) {
 		super();
 		this.id = id;
 	}

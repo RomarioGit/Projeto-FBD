@@ -83,7 +83,13 @@ public class Facade implements IFacade {
 		// TODO Auto-generated method stub
 		return businessUsuario.getAll();
 	}
-	@Override
+
+    @Override
+    public Usuario buscarLogin(String email, String senha) throws ExceptionGeral {
+        return businessUsuario.buscarLogin(email,senha);
+    }
+
+    @Override
 	public Contato salvarContato(Contato contato) throws ExceptionGeral {
 		// TODO Auto-generated method stub
 		return businessContato.salvarContato(contato);

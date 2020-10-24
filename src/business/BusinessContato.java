@@ -16,10 +16,6 @@ public class BusinessContato implements IBusinessContato {
 
     @Override
     public Contato salvarContato(Contato contato) throws ExceptionGeral {
-		
-    	if (contato.getTelefone().matches("^[a-Z]")) {
-			throw new ExceptionGeral("Deve conter apenas números!");
-		}
     	try {
             contato = daoContato.salvarContato(contato);
         } catch (ExceptionGeral e) {

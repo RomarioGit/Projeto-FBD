@@ -2,7 +2,6 @@ package main;
 
 import exception.ExceptionGeral;
 import facade.Facade;
-import facade.IFacade;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +10,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
-import model.Gerente;
 import model.Pessoa;
+import model.Usuario;
 
 import java.io.IOException;
 
 public class Main extends Application {
     public static Stage STAGE = new Stage();
     public static Stage STAGE_PRINCIPAL = new Stage();
-    public static String LOGIN = "/view/TelaLogin.fxml";
+    public static String LOGIN = "/view/Tela_Login.fxml";
     public static String MENU = "/view/TelaControleInterno.fxml";
 
 
@@ -69,7 +68,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         Facade facade = new Facade();
-        Pessoa pessoa = new Pessoa("123",1);
+        Pessoa pessoa = new Pessoa();
+        pessoa.setCpf("0000");
         try {
             facade.salvarPessoa(pessoa);
         } catch (ExceptionGeral e) {

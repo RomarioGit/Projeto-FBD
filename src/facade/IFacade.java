@@ -21,6 +21,7 @@ public interface IFacade {
     public Usuario salvarUsuario(Usuario usuario) throws ExceptionGeral;
 	public Usuario buscarIDUsuario(int id) throws ExceptionGeral;
 	public ArrayList<Usuario> getAllUsuario() throws ExceptionGeral;
+	public Usuario buscarLogin(String email, String senha) throws ExceptionGeral;
 	
     //contato
     public Contato salvarContato(Contato contato) throws ExceptionGeral;

@@ -17,22 +17,7 @@ public class BusinessMesa implements IBusinessMesa{
 
 	@Override
 	public Mesa salvarMesa(Mesa mesa) throws ExceptionGeral {
-		
-		if (mesa.getHora_entrada().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A hora de entrada deve conter apenas numeros!");
-		}
-		if (mesa.getHora_saida().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A hora de saída deve conter apenas numeros!");
-		}
-		if (mesa.getNumero().matches("^[a-Z]")) {
-			throw new ExceptionGeral("O número de entrada deve conter apenas numeros!");
-		}
-		if (mesa.getValor_conta().matches("^[a-Z]")) {
-			throw new ExceptionGeral("O valor da deve conter apenas numeros!");
-		}
-		if (!mesa.getCliente().matches("^[a-Z]")) {
-			throw new ExceptionGeral("O cliente deve conter apenas letras!");
-		}
+
 		try {
         	mesa = daoMesa.salvarMesa(mesa);
         } catch (ExceptionGeral e) {

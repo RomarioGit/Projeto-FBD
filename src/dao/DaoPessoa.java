@@ -23,12 +23,11 @@ public class DaoPessoa implements IDaoPessoa {
     public Pessoa salvarPessoa(Pessoa pessoa) throws ExceptionGeral{
         try {
             this.statement = conexao.prepareStatement("" + " INSERT INTO pessoa " + "(cpf)" + "VALUES(?) returning id");
-            this.statement.setString(2, pessoa.getCpf());
+            this.statement.setString(1, pessoa.getCpf());
            
             this.result = this.statement.executeQuery();
             this.result.next();
-            pessoa.setId(this.result.getInt(1));   
-            
+            pessoa.setId(this.result.getInt(1));
         } catch (SQLException e) {
             System.out.println("Deu pau na insercao");
             e.printStackTrace();
@@ -52,7 +51,7 @@ public class DaoPessoa implements IDaoPessoa {
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Pessoa não encontrada.");
+            throw new ExceptionGeral("Erro: Pessoa nï¿½o encontrada.");
         }
 	}
 
@@ -72,7 +71,7 @@ public class DaoPessoa implements IDaoPessoa {
             
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Pessoa não encontrada.");
+            throw new ExceptionGeral("Erro: Pessoa nï¿½o encontrada.");
         }
 	}
 }

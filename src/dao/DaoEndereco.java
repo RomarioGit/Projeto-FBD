@@ -22,7 +22,7 @@ public class DaoEndereco implements IDaoEndereco {
     public Endereco salvarEndereco(Endereco endereco) throws ExceptionGeral {
         try {
             this.statement = conexao.prepareStatement("" + "INSERT INTO endereco" + "(rua, bairro, cidade, cep, estado, complemento)" +
-                    "VALUES(?,?,?,?,?,?,?) returning id");
+                    "VALUES(?,?,?,?,?,?) returning id");
             this.statement.setString(1, endereco.getRua());
             this.statement.setString(2, endereco.getBairro());
             this.statement.setString(3, endereco.getCidade());
@@ -67,7 +67,7 @@ public class DaoEndereco implements IDaoEndereco {
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Endereco não encontrado.");
+            throw new ExceptionGeral("Erro: Endereco nï¿½o encontrado.");
         }
 	}
 
@@ -92,7 +92,7 @@ public class DaoEndereco implements IDaoEndereco {
             
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Endereco não encontrado.");
+            throw new ExceptionGeral("Erro: Endereco nï¿½o encontrado.");
         }
 	}
 }

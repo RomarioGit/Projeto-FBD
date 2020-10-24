@@ -18,16 +18,7 @@ public class BusinessGerente implements IBusinessGerente{
 
 	@Override
 	public Gerente salvarGerente(Gerente gerente) throws ExceptionGeral {
-    	
-		if (!gerente.getNome().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A Nome deve conter apenas letras!");
-		}
-		if (gerente.getCpf().matches("^[a-Z]")) {
-			throw new ExceptionGeral("O CPF deve conter apenas numeros!");
-		}
-		if (!gerente.getData_nasc().matches("^[a-Z]")) {
-			throw new ExceptionGeral("A Data de nscimento deve conter apenas letras!");
-		}
+
 		try {
         	gerente = daoGerente.salvarGerente(gerente);
         } catch (ExceptionGeral e) {

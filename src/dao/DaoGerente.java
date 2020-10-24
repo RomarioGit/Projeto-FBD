@@ -27,10 +27,14 @@ public class DaoGerente implements IDaoGerente{
 	@Override
 	public Gerente salvarGerente(Gerente gerente) throws ExceptionGeral {
         try {
-            this.statement = conexao.prepareStatement("" + "INSERT INTO gerente" + "(nome, data_nasc, sexo)" + "VALUES(?,?,?) returning id");
+            this.statement = conexao.prepareStatement("" + "INSERT INTO gerente" + "(nome, data_nasc, sexo, contato_id,  pessoa_id, endereco_id, usuario_id )" + "VALUES(?,?,?,?,?,?,?) returning id");
             this.statement.setString(1, gerente.getNome());
             this.statement.setString(2, gerente.getData_nasc());
             this.statement.setString(3, gerente.getSexo());
+            this.statement.setInt(4, gerente.getContato().getId());
+            this.statement.setInt(5, gerente.getPessoa().getId());
+            this.statement.setInt(6, gerente.getEndereco().getId());
+            this.statement.setInt(7, gerente.getUsuario().getId());
             
             this.result = this.statement.executeQuery();
             this.result.next();
@@ -62,7 +66,7 @@ public class DaoGerente implements IDaoGerente{
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Gerente não encontrado.");
+            throw new ExceptionGeral("Erro: Gerente nï¿½o encontrado.");
         }
 	}
 	
@@ -84,7 +88,7 @@ public class DaoGerente implements IDaoGerente{
             
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Gerente não encontrado.");
+            throw new ExceptionGeral("Erro: Gerente nï¿½o encontrado.");
         }
 	}
 	

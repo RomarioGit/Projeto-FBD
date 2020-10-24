@@ -54,9 +54,32 @@ public class DaoUsuario implements IDaoUsuario {
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Usuario n„o encontrada.");
+            throw new ExceptionGeral("Erro: Usuario n√£o encontrada.");
         }
 	}
+
+    @Override
+    public Usuario buscarLogin(String email, String senha) throws ExceptionGeral {
+
+        try {
+            this.statement = conexao.prepareStatement("SELECT * FROM usuario WHERE usuario.login =? and usuario.senha =?");
+            this.statement.setString(1, email);
+            this.statement.setString(2, senha);
+            this.result = this.statement.executeQuery();
+            Usuario usuario = null;
+            System.out.println("Encontramos");
+            if(result.next()){
+                usuario = new Usuario();
+                usuario.setLogin(result.getString(1));
+                usuario.setSenha(result.getString(2));
+                System.out.println("Setado");
+            }
+            return usuario;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 	@Override
 	public ArrayList<Usuario> getAll() throws ExceptionGeral {
@@ -72,10 +95,10 @@ public class DaoUsuario implements IDaoUsuario {
 	                usuarios.add(usuario);
             }
             return usuarios;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Usuarios n„o encontrado.");
+            throw new ExceptionGeral("Erro: Usuarios n√£o encontrado.");
         }
 	}
 }

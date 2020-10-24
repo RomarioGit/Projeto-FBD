@@ -36,4 +36,9 @@ public class BusinessUsuario implements IBusinessUsuario {
 		return daoUsuario.getAll();
 
 	}
+
+	@Override
+	public Usuario buscarLogin(String email, String senha) throws ExceptionGeral {
+		return daoUsuario.buscarLogin(email,senha);
+	}
 }

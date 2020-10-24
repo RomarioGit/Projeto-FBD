@@ -9,5 +9,6 @@ public interface IDaoUsuario {
     public Usuario salvarUsuario(Usuario usuario) throws ExceptionGeral;
 	public Usuario buscarID(int id) throws ExceptionGeral;
 	public ArrayList<Usuario> getAll() throws ExceptionGeral;
+    public Usuario buscarLogin(String email, String senha) throws ExceptionGeral;
 
 }
