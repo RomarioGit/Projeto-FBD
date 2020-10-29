@@ -27,12 +27,12 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="cidadeTf" layoutX="37.0" layoutY="236.0" prefHeight="25.0" prefWidth="380.0" promptText="Cidade">
+      <TextField fx:id="cidadeTf" layoutX="37.0" layoutY="219.0" prefHeight="25.0" prefWidth="380.0" promptText="Cidade">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="ruaTf" layoutX="37.0" layoutY="271.0" prefHeight="25.0" prefWidth="278.0" promptText="Rua">
+      <TextField fx:id="ruaTf" layoutX="37.0" layoutY="267.0" prefHeight="25.0" prefWidth="278.0" promptText="Rua">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
@@ -66,7 +66,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="bairroTf" layoutX="37.0" layoutY="304.0" prefHeight="25.0" prefWidth="278.0" promptText="Bairro">
+      <TextField fx:id="bairroTf" layoutX="37.0" layoutY="309.0" prefHeight="25.0" prefWidth="278.0" promptText="Bairro">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
@@ -76,12 +76,12 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="emailTf" layoutX="36.0" layoutY="159.0" prefHeight="25.0" prefWidth="270.0" promptText="Endereço de Email">
+      <TextField fx:id="emailTf" layoutX="32.0" layoutY="406.0" prefHeight="25.0" prefWidth="270.0" promptText="Endereço de Email">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="foneTf" layoutX="37.0" layoutY="196.0" prefHeight="25.0" prefWidth="218.0" promptText="Telefone para contato">
+      <TextField fx:id="foneTf" layoutX="37.0" layoutY="167.0" prefHeight="25.0" prefWidth="218.0" promptText="Telefone para contato">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
@@ -91,32 +91,87 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="complementoTf" layoutX="37.0" layoutY="339.0" prefHeight="38.0" prefWidth="380.0" promptText="Complemento">
+      <TextField fx:id="complementoTf" layoutX="37.0" layoutY="352.0" prefHeight="38.0" prefWidth="380.0" promptText="Complemento">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="senhaTfDefine" layoutX="35.0" layoutY="388.0" prefHeight="25.0" prefWidth="251.0" promptText="Senha com no mínimo 6 caracteres">
-         <font>
-            <Font name="Arial Black" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="senhaTfConfirm" layoutX="312.0" layoutY="388.0" prefHeight="25.0" prefWidth="251.0" promptText="Confirme a senha">
+      <TextField fx:id="senhaTfDefine" layoutX="312.0" layoutY="406.0" prefHeight="25.0" prefWidth="251.0" promptText="Senha com no mínimo 6 caracteres">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </TextField>
       <Button layoutX="507.0" layoutY="459.0" mnemonicParsing="false" onAction="#cadastrarBt" prefWidth="70.0" text="Cadastrar" />
       <Button layoutX="420.0" layoutY="459.0" mnemonicParsing="false" onAction="#cancelarBt" prefWidth="70.0" text="Cancelar" />
-      <Label layoutX="20.0" layoutY="462.0" text="*Necessário preencher todos os campos para finalizar o cadastro." textFill="FIREBRICK">
+      <Label layoutX="20.0" layoutY="466.0" text="*Necessário preencher todos os campos para finalizar o cadastro." textFill="FIREBRICK">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <RadioButton layoutX="51.0" layoutY="431.0" mnemonicParsing="false" onAction="#isGerente" text="Gerente">
+      <RadioButton layoutX="51.0" layoutY="444.0" mnemonicParsing="false" onAction="#isGerente" text="Gerente">
          <toggleGroup>
             <ToggleGroup fx:id="funcaoTG" />
          </toggleGroup></RadioButton>
-      <RadioButton layoutX="147.0" layoutY="431.0" mnemonicParsing="false" onAction="#isGarcon" text="Garçon" toggleGroup="$funcaoTG" />
+      <RadioButton layoutX="147.0" layoutY="445.0" mnemonicParsing="false" onAction="#isGarcon" text="Garçon" toggleGroup="$funcaoTG" />
+      <Label layoutX="41.0" layoutY="55.0" text="Nome completo" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="101.0" text="CPF" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="146.0" text="Telefone" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="197.0" text="Cidade" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="246.0" text="Rua" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="291.0" text="Bairro" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="334.0" text="Complemento" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="388.0" text="Email" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="435.0" layoutY="386.0" text="Senha" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="364.0" layoutY="284.0" text="CEP" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="439.0" layoutY="212.0" text="UF" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="150.0" text="Data de Nascimento" textFill="FIREBRICK">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

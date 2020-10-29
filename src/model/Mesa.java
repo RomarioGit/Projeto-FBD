@@ -2,16 +2,17 @@ package model;
 
 public class Mesa {
 	
-    private String numero;
+    private Integer numero;
     private String cliente;
     private String hora_entrada;
     private String status;
     private String pedido;
-    private String valor_conta;
+    private Double valor_conta;
     private String hora_saida;
     private  Integer id;
+
    
-	public Mesa(String numero, String cliente, String hora_entrada, String status, String pedido, String valor_conta,
+	public Mesa(Integer numero, String cliente, String hora_entrada, String status, String pedido, Double valor_conta,
 			String hora_saida) {
 		super();
 		this.numero = numero;
@@ -27,11 +28,14 @@ public class Mesa {
 		super();
 		this.id = id;
 	}
-	
-	public String getNumero() {
+
+	public Mesa() {
+	}
+
+	public Integer getNumero() {
 		return numero;
 	}
-	public void setNumero(String numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 	public String getCliente() {
@@ -58,10 +62,10 @@ public class Mesa {
 	public void setPedido(String pedido) {
 		this.pedido = pedido;
 	}
-	public String getValor_conta() {
+	public Double getValor_conta() {
 		return valor_conta;
 	}
-	public void setValor_conta(String valor_conta) {
+	public void setValor_conta(Double valor_conta) {
 		this.valor_conta = valor_conta;
 	}
 	public String getHora_saida() {

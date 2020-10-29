@@ -24,22 +24,46 @@ public class DaoMesa implements IDaoMesa{
         try {
             this.statement = conexao.prepareStatement("" + "INSERT INTO mesa" + "(numero, cliente, hora_entrada, status, pedido, valor_conta,"
             		+ "hora_saida)" + "VALUES(?,?,?,?,?,?,?) returning id");
-            this.statement.setString(1, mesa.getNumero());
+            this.statement.setInt(1, mesa.getNumero());
             this.statement.setString(2, mesa.getCliente());
             this.statement.setString(3, mesa.getHora_entrada());
             this.statement.setString(4, mesa.getStatus());
             this.statement.setString(5, mesa.getPedido());
-            this.statement.setString(6, mesa.getValor_conta());
+            this.statement.setDouble(6, mesa.getValor_conta());
             this.statement.setString(7, mesa.getHora_saida());
-           
+
+
             this.result = this.statement.executeQuery();
             this.result.next();
-            mesa.setId(this.result.getInt(1));   
+            mesa.setId(this.result.getInt(1));
+
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return mesa;
+    }
+
+    @Override
+    public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral {
+        try {
+            this.statement = conexao.prepareStatement("UPDATE mesa set numero =?, cliente =?, hora_entrada =?, status =?, pedido =?, valor_conta =?,"
+            + " hora_saida =? where id= " + mesa.getId());
+
+            this.statement.setInt(1, mesa.getNumero());
+            this.statement.setString(2, mesa.getCliente());
+            this.statement.setString(3, mesa.getHora_entrada());
+            this.statement.setString(4, mesa.getStatus());
+            this.statement.setString(5, mesa.getPedido());
+            this.statement.setDouble(6, mesa.getValor_conta());
+            this.statement.setString(7, mesa.getHora_saida());
+
+            this.statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mesa;
+
     }
 
 	@Override
@@ -51,12 +75,12 @@ public class DaoMesa implements IDaoMesa{
             result = this.statement.executeQuery();
             Mesa mesa;
             if (result.next()) {
-                String numero = result.getString(1);
+                Integer numero = result.getInt(1);
                 String cliente = result.getString(2);
                 String hora_entrada = result.getString(3);
                 String status = result.getString(4);
                 String pedido = result.getString(5);
-                String valor_conta = result.getString(6);
+                Double valor_conta = result.getDouble(6);
                 String hora_saida = result.getString(7);
                 mesa = new Mesa(id);
                 mesa.setNumero(numero);
@@ -71,9 +95,10 @@ public class DaoMesa implements IDaoMesa{
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Mesa não encontrada.");
+            throw new ExceptionGeral("Erro: Mesa nï¿½o encontrada.");
         }
 	}
+
 	@Override
 	public ArrayList<Mesa> getAll() throws ExceptionGeral {
 		ArrayList<Mesa> mesas = new ArrayList<Mesa>();
@@ -83,22 +108,27 @@ public class DaoMesa implements IDaoMesa{
             result = this.statement.executeQuery();
             Mesa mesa;
             while (result.next()) {
-            	    String numero = result.getString(1);
+
+
+                    Integer numero = result.getInt(1);
 	                String cliente = result.getString(2);
-	                String hora_entrada = result.getString(2);
-	                String status = result.getString(2);
-	                String pedido = result.getString(2);
-	                String valor_conta = result.getString(2);
-	                String hora_saida = result.getString(2);
+	                String hora_entrada = result.getString(3);
+	                String status = result.getString(4);
+	                String pedido = result.getString(5);
+	                Double valor_conta = result.getDouble(6);
+	                String hora_saida = result.getString(7);
+
+
 	                mesa = new Mesa(numero, cliente, hora_entrada, status, pedido, valor_conta, hora_saida);
+
 	                mesas.add(mesa);
             }
             return mesas;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Mesa não encontrada.");
+            throw new ExceptionGeral("Erro: Mesa nÃ£o encontrada.");
         }
 	}
-    
+
 }

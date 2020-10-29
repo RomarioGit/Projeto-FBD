@@ -27,22 +27,26 @@ public class DaoGarcon implements IDaoGarcon{
 	@Override
 	public Garcon salvarGarcon(Garcon garcon) throws ExceptionGeral {
         try {
-            this.statement = conexao.prepareStatement("" + "INSERT INTO Garcon" + "(nome, data_nasc, sexo)" + "VALUES(?,?,?) returning id");
+            this.statement = conexao.prepareStatement("" + "INSERT INTO Garcon" + "(nome, data_nasc, sexo, contato_id,  pessoa_id, endereco_id, usuario_id )" + "VALUES(?,?,?,?,?,?,?) returning id");
             this.statement.setString(1, garcon.getNome());
             this.statement.setString(2, garcon.getData_nasc());
             this.statement.setString(3, garcon.getSexo());
-           
+            this.statement.setInt(4, garcon.getContato().getId());
+            this.statement.setInt(5, garcon.getPessoa().getId());
+            this.statement.setInt(6, garcon.getEndereco().getId());
+            this.statement.setInt(7, garcon.getUsuario().getId());
+
             this.result = this.statement.executeQuery();
             this.result.next();
-            garcon.setId(this.result.getInt(1));    
-            
+            garcon.setId(this.result.getInt(1));
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return garcon;
     }
 
-	@Override
+    @Override
 	public Garcon buscarID(int id) throws ExceptionGeral {
         try {
             this.statement = conexao.prepareStatement("SELECT garcon.nome, garcon.data_nasc, garcon.sexo FROM "+"garcon"+" garcon WHERE ID = ?");
@@ -62,9 +66,10 @@ public class DaoGarcon implements IDaoGarcon{
             throw new ExceptionGeral("ID INEXISTENTE");
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Garcon não encontrada.");
+            throw new ExceptionGeral("Erro: Garcon nÃ£o encontrada.");
         }
 	}
+
 	@Override
 	public ArrayList<Garcon> getAll() throws ExceptionGeral {
 		ArrayList<Garcon> garcons = new ArrayList<Garcon>();
@@ -80,14 +85,14 @@ public class DaoGarcon implements IDaoGarcon{
 	                garcons.add(garcon);
             }
             return garcons;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            throw new ExceptionGeral("Erro: Garcon não encontrado.");
+            throw new ExceptionGeral("Erro: Garcon nï¿½o encontrado.");
+
         }
-	}
-	
-	public Garcon salvar(Garcon garcon, Endereco endereco, Contato contato, Usuario user, Pessoa pessoa) throws ExceptionGeral {
+    }
+    public Garcon salvar(Garcon garcon, Endereco endereco, Contato contato, Usuario user, Pessoa pessoa) throws ExceptionGeral {
         try {
             this.statement = conexao.prepareStatement("" + "INSERT INTO gerente" + "(nome, cpf, sexo, email, telefone, data_nasc, cidade,"
             		+ "estado, rua, bairro, cep, complemento, senha )" + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) returning id");

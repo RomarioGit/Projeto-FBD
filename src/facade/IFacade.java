@@ -37,7 +37,8 @@ public interface IFacade {
 	public Mesa salvarMesa(Mesa mesa) throws ExceptionGeral;
 	public Mesa buscarIDMesa(int id) throws ExceptionGeral;
     public ArrayList<Mesa> getAllMesa() throws ExceptionGeral;
-    
+    public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral;
+
     //Gerente
 	public Gerente salvarGerente(Gerente gerente) throws ExceptionGeral;
 	public Gerente buscarIDGerente(int id) throws ExceptionGeral;

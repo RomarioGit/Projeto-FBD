@@ -134,6 +134,12 @@ public class Facade implements IFacade {
 		// TODO Auto-generated method stub
 		return businessMesa.getAll();
 	}
+
+	@Override
+	public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral {
+		return businessMesa.atualizaMesa(mesa);
+	}
+
 	@Override
 	public Gerente salvarGerente(Gerente gerente) throws ExceptionGeral {
 		// TODO Auto-generated method stub

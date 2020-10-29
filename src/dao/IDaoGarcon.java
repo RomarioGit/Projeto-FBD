@@ -10,5 +10,6 @@ public interface IDaoGarcon {
 	public Garcon salvarGarcon(Garcon garcon) throws ExceptionGeral;
 	public Garcon buscarID(int id) throws ExceptionGeral;
     public ArrayList<Garcon> getAll() throws ExceptionGeral;
+
 	
 }

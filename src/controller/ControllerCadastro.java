@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import main.Main;
 import model.*;
+import view.Mensagem;
 
 import java.io.IOException;
 
@@ -65,9 +66,6 @@ public class ControllerCadastro {
 
     @FXML
     private TextField senhaTfDefine;
-
-    @FXML
-    private TextField senhaTfConfirm;
 
     @FXML
     private ToggleGroup funcaoTG;
@@ -160,17 +158,18 @@ public class ControllerCadastro {
         this.senhaTfDefine = senhaTfDefine;
     }
 
-    public TextField getSenhaTfConfirm() {
-        return senhaTfConfirm;
-    }
-
-    public void setSenhaTfConfirm(TextField senhaTfConfirm) {
-        this.senhaTfConfirm = senhaTfConfirm;
-    }
-
     @FXML
     void cadastrarBt(ActionEvent event) throws ExceptionGeral, IOException {
-        cadastrar();
+        if(nomeTf.getText().isEmpty() || cpfTf.getText().isEmpty()|| ruaTf.getText().isEmpty()||
+                bairroTf.getText().isEmpty() || cidadeTf.getText().isEmpty() || estadoTf.getText().isEmpty() ||
+        cepTf.getText().isEmpty() || foneTf.getText().isEmpty() || complementoTf.getText().isEmpty() ||
+        emailTf.getText().isEmpty() || senhaTfDefine.getText().isEmpty()){
+
+            Mensagem.mensagem("Preencha todos os campos!");
+        }
+        else{
+            cadastrar();
+        }
     }
 
     @FXML
@@ -185,7 +184,6 @@ public class ControllerCadastro {
         bairroTf.clear();
         cidadeTf.clear();
         complementoTf.clear();
-        senhaTfConfirm.clear();
         senhaTfDefine.clear();
         foneTf.clear();
         cpfTf.clear();
@@ -202,7 +200,7 @@ public class ControllerCadastro {
         if(selectGerente) {
             gerente = new Gerente();
             usuario.setLogin(emailTf.getText());
-            usuario.setSenha(senhaTfConfirm.getText());
+            usuario.setSenha(senhaTfDefine.getText());
             facade.salvarUsuario(usuario);
 
             contato.setEmail(emailTf.getText());
@@ -241,7 +239,7 @@ public class ControllerCadastro {
         else {
             garcon = new Garcon();
             usuario.setLogin(emailTf.getText());
-            usuario.setSenha(senhaTfConfirm.getText());
+            usuario.setSenha(senhaTfDefine.getText());
             facade.salvarUsuario(usuario);
 
             contato.setEmail(emailTf.getText());
