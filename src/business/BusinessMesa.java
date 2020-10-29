@@ -37,8 +37,8 @@ public class BusinessMesa implements IBusinessMesa{
 	}
 
 	@Override
-	public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral {
-		return daoMesa.atualizaMesa(mesa);
+	public void atualizaMesa(Mesa mesa) throws ExceptionGeral {
+		daoMesa.atualizaMesa(mesa);
 	}
 
 }

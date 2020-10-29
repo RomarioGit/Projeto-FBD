@@ -24,17 +24,37 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="hChegada" layoutX="33.0" layoutY="81.0" promptText="Horário de chegada" />
-                        <TextField fx:id="clienteMesa" layoutX="33.0" layoutY="132.0" promptText="Cliente" />
-                        <Button layoutX="3.0" layoutY="260.0" mnemonicParsing="false" onAction="#salvaMesa" text="Registrar Mesa" />
-                        <Button layoutX="440.0" layoutY="260.0" mnemonicParsing="false" onAction="#voltaMesa" prefWidth="70.0" text="Voltar" />
+                        <TextField fx:id="hChegada" layoutX="34.0" layoutY="91.0" promptText="Horário de chegada" />
+                        <TextField fx:id="clienteMesa" layoutX="34.0" layoutY="145.0" promptText="Cliente" />
+                        <Button layoutX="304.0" layoutY="263.0" mnemonicParsing="false" onAction="#salvaMesa" text="Registrar Mesa" />
+                        <Button layoutX="440.0" layoutY="263.0" mnemonicParsing="false" onAction="#voltaMesa" prefWidth="70.0" text="Voltar" />
                         <ImageView fitHeight="274.0" fitWidth="302.0" layoutX="119.0" layoutY="-10.0" opacity="0.4">
                            <image>
                               <Image url="@logobarFBD.jpeg" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="numMesa" layoutX="33.0" layoutY="41.0" prefHeight="25.0" prefWidth="84.0" promptText="Nº da Mesa" />
-                        <TextField fx:id="pedidosTf" layoutX="33.0" layoutY="172.0" prefHeight="81.0" prefWidth="149.0" promptText="Pedidos" />
+                        <TextField fx:id="numMesa" layoutX="33.0" layoutY="35.0" prefHeight="25.0" prefWidth="84.0" promptText="Nº da Mesa" />
+                        <TextField fx:id="pedidosTf" layoutX="34.0" layoutY="198.0" prefHeight="81.0" prefWidth="149.0" promptText="Pedidos" />
+                        <Label layoutX="34.0" layoutY="14.0" text="Nº da Mesa" textFill="FIREBRICK">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="36.0" layoutY="66.0" text="Horário de chegada" textFill="FIREBRICK">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="36.0" layoutY="123.0" text="Clientes" textFill="FIREBRICK">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="177.0" text="Pedidos" textFill="FIREBRICK">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>

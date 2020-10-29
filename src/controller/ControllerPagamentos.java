@@ -10,13 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import main.Main;
 import model.Mesa;
+import view.Mensagem;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerPagamentos implements Initializable {
-    static String pagamento = "/view/TelaMesas.fxml";
+    static String pagamento = "/view/TelaPagamento.fxml";
+    static String telaMesa = "/view/TelaMesas.fxml";
     ControllerMesas controllerMesas, initiControllerMesas;
     Mesa mesa;
     boolean isVista = false;
@@ -31,6 +33,9 @@ public class ControllerPagamentos implements Initializable {
 
     @FXML
     private TextField valorTf;
+
+    @FXML
+    private TextField hSaida;
 
     @FXML
     void aVista(ActionEvent event) {
@@ -55,7 +60,7 @@ public class ControllerPagamentos implements Initializable {
 
     @FXML
     void cancelar(ActionEvent event) throws IOException {
-        Main.stageGenerico(pagamento).close();
+        Main.stageGenerico(telaMesa).show();
     }
 
     @Override
@@ -69,13 +74,23 @@ public class ControllerPagamentos implements Initializable {
     }
 
     void atualizar() throws IOException {
-        mesa.setValor_conta(100.0);
-        mesa.setHora_saida("23h");
+        double convert = Double.parseDouble(valorTf.getText());
+        if (isCartao){
+            convert = convert + (convert * 0.10);
+            System.out.println("Cartão");
+        }
+        mesa.setValor_conta(convert);
+        mesa.setStatus("Desocupada");
+        mesa.setHora_saida(hSaida.getText());
+        System.out.println("Setou");
         try {
             facade.atualizaMesa(mesa);
+            System.out.println("Atualizou");
         } catch (ExceptionGeral exceptionGeral) {
+            Mensagem.mensagem("Erro ao efetuar pagamento!");
             exceptionGeral.printStackTrace();
         }
+        Mensagem.mensagem("Pagamento efetuado com sucesso!");
         Main.stageGenerico(pagamento).close();
     }
 

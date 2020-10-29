@@ -136,8 +136,8 @@ public class Facade implements IFacade {
 	}
 
 	@Override
-	public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral {
-		return businessMesa.atualizaMesa(mesa);
+	public void atualizaMesa(Mesa mesa) throws ExceptionGeral {
+		businessMesa.atualizaMesa(mesa);
 	}
 
 	@Override

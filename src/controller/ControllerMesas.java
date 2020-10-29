@@ -110,7 +110,7 @@ public class ControllerMesas implements Initializable {
         mesa.setCliente(clienteMesa.getText());
         mesa.setPedido(pedidosTf.getText());
         mesa.setHora_saida("0");
-        mesa.setStatus("0");
+        mesa.setStatus("Ocupada");
         mesa.setValor_conta(0.0);
         facade.salvarMesa(mesa);
         limpar();

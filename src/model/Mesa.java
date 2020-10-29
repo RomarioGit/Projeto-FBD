@@ -9,7 +9,7 @@ public class Mesa {
     private String pedido;
     private Double valor_conta;
     private String hora_saida;
-    private  Integer id;
+    private int id;
 
    
 	public Mesa(Integer numero, String cliente, String hora_entrada, String status, String pedido, Double valor_conta,
@@ -24,7 +24,7 @@ public class Mesa {
 		this.hora_saida = hora_saida;
 	}
 	
-	public Mesa(Integer id) {
+	public Mesa(int id) {
 		super();
 		this.id = id;
 	}
@@ -74,10 +74,10 @@ public class Mesa {
 	public void setHora_saida(String hora_saida) {
 		this.hora_saida = hora_saida;
 	}
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
     

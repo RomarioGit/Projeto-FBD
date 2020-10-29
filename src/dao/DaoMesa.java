@@ -45,10 +45,10 @@ public class DaoMesa implements IDaoMesa{
     }
 
     @Override
-    public Mesa atualizaMesa(Mesa mesa) throws ExceptionGeral {
+    public void atualizaMesa(Mesa mesa) throws ExceptionGeral {
         try {
-            this.statement = conexao.prepareStatement("UPDATE mesa set numero =?, cliente =?, hora_entrada =?, status =?, pedido =?, valor_conta =?,"
-            + " hora_saida =? where id= " + mesa.getId());
+            this.statement = conexao.prepareStatement("update mesa set numero =?, cliente =?, hora_entrada =?, status =?, pedido =?, valor_conta =?,"
+            + "hora_saida =? where id =?");
 
             this.statement.setInt(1, mesa.getNumero());
             this.statement.setString(2, mesa.getCliente());
@@ -57,12 +57,13 @@ public class DaoMesa implements IDaoMesa{
             this.statement.setString(5, mesa.getPedido());
             this.statement.setDouble(6, mesa.getValor_conta());
             this.statement.setString(7, mesa.getHora_saida());
+            this.statement.setInt(8, mesa.getId());
 
             this.statement.executeUpdate();
+            this.statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return mesa;
 
     }
 
